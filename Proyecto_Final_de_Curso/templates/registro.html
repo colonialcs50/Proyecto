@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% block title %}Login{% endblock %}
+{% block body %}
+      <form class="form">
+        <h2 class="form_title">Regístrate</h2>
+
+        <div class="form_container">
+            <div class="form_group">
+                <input type="text" id="name" class="form_input" placeholder=" ">
+                <label for="name" class="form_label">Nombre:</label>
+                <span class="form_line"></span>
+            </div>
+            <div class="form_group">
+                <input type="text" id="apellido" class="form_input" placeholder=" ">
+                <label for="apellido" class="form_label">Apellido:</label>
+                <span class="form_line"></span>
+            </div>
+            <div class="form_group">
+                <input type="text" id="usuario" class="form_input" placeholder=" ">
+                <label for="usuario" class="form_label">Usuario:</label>
+                <span class="form_line"></span>
+            </div>
+            <div class="form_group">
+                <input type="number" id="telefono" class="form_input" placeholder=" ">
+                <label for="telefono" class="form_label">Teléfono:</label>
+                <span class="form_line"></span>
+            </div>
+            <div class="form_group">
+                <input type="email" id="correo" class="form_input" placeholder=" ">
+                <label for="correo" class="form_label">Correo Electrónico:</label>
+                <span class="form_line"></span>
+            </div>
+            <div class="form_group">
+                <input type="password" id="contraseña" class="form_input" placeholder=" ">
+                <label for="contraseña" class="form_label">Contraseña:</label>
+                <span class="form_line"></span>
+            </div>
+            <div class="form_group">
+                <input type="password" id="confirmar" class="form_input" placeholder=" ">
+                <label for="confirmar" class="form_label">Confirmar contraseña:</label>
+                <span class="form_line"></span>
+            </div>
+
+            <input type="submit" class="form_submit" value="Entrar">
+            <p class="warning" id="warning"></p>
+        </div>
+      </form>
+{% endblock %}
