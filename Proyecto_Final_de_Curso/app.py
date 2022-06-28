@@ -36,7 +36,7 @@ def after_request(response):
 
 
 @app.route("/")
-@login_required
+
 def index():
 
     return render_template("landing.html")
@@ -108,6 +108,10 @@ def register():
             return apology('El Password es diferente', 400)
 
         hash = generate_password_hash(password)
+
+        query = db.execute("Select Username from usuario where Username = ?" , username)
+        if len(query) != 0:
+             return apology('El Username Ya esta usado', 400)
 
         try:
             db.execute("INSERT INTO usuario(nombre, apellido, Correo, Telefono, Username, hash) VALUES(?, ?, ?, ?, ?, ?)", nombre, apellido, correo, telefono, username, hash)
