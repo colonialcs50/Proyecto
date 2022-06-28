@@ -46,6 +46,11 @@ def index():
 @login_required
 def landing():
 
+    user_id = session["user_id"]
+    print(user_id)
+    usuario = db.execute("SELECT Username FROM usuario WHERE Id = ?", user_id)[0]["Username"]
+    print(usuario)
+
     return render_template("landing.html")
 
 
