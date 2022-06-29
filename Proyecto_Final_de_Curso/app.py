@@ -142,5 +142,22 @@ def logout():
 @app.route("/admin")
 @login_required
 def admin():
+    if(request.method == "POST"):
+        nombre = request.form.get('nombre')
+        descripcion = request.form.get('descripcion')
+        precio = request.form.get('precio')
+        descuento = request.form.get('descuento')
+        p_descuento = request.form.get('p_descuento')
 
-    return render_template("admin.html")
+        validacion = db.execute("Select nombre from comida where nombre = ?" , nombre)
+        if len(validacion) != 0:
+             return apology('El Platillo, Ya esta usado', 400)
+        try:
+            db.execute("INSERT INTO comida(nombre, descripcion, precio, precio_decuento, Descuento) VALUES(?, ?, ?, ?, ?)", nombre, descripcion, precio, descuento, p_descuento)
+            return redirect('/landing')
+        except:
+            return apology('El usuario ya esta usado', 400)
+
+    else:
+        comidas = db.execute("SELECT nombre, descripcion, precio, precio_decuento, Descuento FROM comida")
+        return render_template("admin.html", comidas=comidas)

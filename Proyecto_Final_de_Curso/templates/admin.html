@@ -6,31 +6,30 @@
     <h2 class="form_title">Admin</h2>
     
     <div class="form_container">
-        <div class="form_group">
-            <input type="text" id="name" class="form_input" placeholder=" ">
-            <label for="name" class="form_label">Nombre del plato:</label>
-            <span class="form_line"></span>
-        </div>
-        <div class="form_group">
-            <input type="text" id="apellido" class="form_input" placeholder=" " required>
-            <label for="apellido" class="form_label">Descripción:</label>
-            <span class="form_line"></span>
-        </div>
-        <div class="form_group">
-            <input type="text" id="usuario" class="form_input" placeholder=" " required>
-            <label for="usuario" class="form_label">Precio:</label>
-            <span class="form_line"></span>
-        </div>
-        <div class="form_group">
-            <input type="number" id="telefono" class="form_input" placeholder=" ">
-            <label for="telefono" class="form_label">Precio descuento:</label>
-            <span class="form_line"></span>
-        </div>
-        <div class="form_group">
-            <input type="email" id="correo" class="form_input" placeholder=" ">
-            <label for="correo" class="form_label">Descuento:</label>
-            <span class="form_line"></span>
-        </div>
+        <input type="text" id="nombre" name="nombre" class="form_input" placeholder=" nombre ">
+        <label for="nombre" class="form_label">Nombre del plato:</label>
+        <span class="form_line"></span>
+    </div>
+    <div class="form_group">
+        <input type="text" id="descripcion" name="descripcion" class="form_input" placeholder=" descripcion " required>
+        <label for="descripcion" class="form_label">Descripción:</label>
+        <span class="form_line"></span>
+    </div>
+    <div class="form_group">
+        <input type="number" id="precio" name="precio" class="form_input" placeholder=" precio " required>
+        <label for="precio" class="form_label">Precio:</label>
+        <span class="form_line"></span>
+    </div>
+    <div class="form_group">
+        <input type="number" id="descuento" name="descuento" class="form_input" placeholder=" descuento ">
+        <label for="descuento" class="form_label">Precio descuento:</label>
+        <span class="form_line"></span>
+    </div>
+    <div class="form_group">
+        <input type="checkbox" id="p_descuento" name="p_descuento" class="form_input" placeholder=" p_descuento ">
+        <label for="p_descuento" class="form_label">Descuento:</label>
+        <span class="form_line"></span>
+    </div>
         <input type="submit" class="form_submit" value="Aplicar">
         <p class="warning" id="warning"></p>
     </div>
@@ -44,12 +43,14 @@
       <th scope="col">Precio Descuento</th>
       <th scope="col">Descuento</th>
     </tr>
+    {% for comidas in comidas %}
     <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td> {{ comidas["nombre"].upper() }}</td>
+        <td> {{ comidas["descripcion"] }}</td>
+        <td> {{ comidas["precio"] }}</td>
+        <td> {{ comidas["precio_decuento"] }}</td>
+        <td> {{ comidas["Descuento"] }}</td>
     </tr>
+    {% endfor %}
   </table>
 {% endblock %}
