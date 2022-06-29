@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+{% block title %}Admin{% endblock %}
+{% block css %} "/static/css/admin.css"{% endblock %}
+{% block body %}
+<form class="form">
+    <h2 class="form_title">Admin</h2>
+    
+    <div class="form_container">
+        <div class="form_group">
+            <input type="text" id="name" class="form_input" placeholder=" ">
+            <label for="name" class="form_label">Nombre del plato:</label>
+            <span class="form_line"></span>
+        </div>
+        <div class="form_group">
+            <input type="text" id="apellido" class="form_input" placeholder=" " required>
+            <label for="apellido" class="form_label">Descripción:</label>
+            <span class="form_line"></span>
+        </div>
+        <div class="form_group">
+            <input type="text" id="usuario" class="form_input" placeholder=" " required>
+            <label for="usuario" class="form_label">Precio:</label>
+            <span class="form_line"></span>
+        </div>
+        <div class="form_group">
+            <input type="number" id="telefono" class="form_input" placeholder=" ">
+            <label for="telefono" class="form_label">Precio descuento:</label>
+            <span class="form_line"></span>
+        </div>
+        <div class="form_group">
+            <input type="email" id="correo" class="form_input" placeholder=" ">
+            <label for="correo" class="form_label">Descuento:</label>
+            <span class="form_line"></span>
+        </div>
+        <input type="submit" class="form_submit" value="Aplicar">
+        <p class="warning" id="warning"></p>
+    </div>
+  </form>
+
+  <table class="normal" summary="Tabla genérica"  width="100px" height="100px">
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Descripcion</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Precio Descuento</th>
+      <th scope="col">Descuento</th>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+  </table>
+{% endblock %}

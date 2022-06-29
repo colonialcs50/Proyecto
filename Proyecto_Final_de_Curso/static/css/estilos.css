@@ -116,7 +116,10 @@ body {
 .form_input:not(:placeholder-shown) ~ .form_line {
     transform: scale(1);
 }
-
+.estilo_a{
+    font-size: 2rem;
+    text-align: center;
+}
 @media (max-width:425px) {
     .form_title {
         font-size: 1.8rem;
