@@ -51,7 +51,7 @@ def landing():
     usuario = db.execute("SELECT Username FROM usuario WHERE Id = ?", user_id)[0]["Username"]
     print(usuario)
 
-    return render_template("landing.html")
+    return render_template("landing.html", usuario=usuario)
 
 
 @app.route("/login", methods=["GET", "POST"])
