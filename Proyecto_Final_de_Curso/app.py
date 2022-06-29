@@ -45,13 +45,13 @@ def index():
 @app.route("/landing", methods=["GET", "POST"])
 @login_required
 def landing():
-
     user_id = session["user_id"]
-    print(user_id)
+    admin = db.execute("Select admin from usuario where Id = ?" , user_id)[0]["admin"]
     usuario = db.execute("SELECT Username FROM usuario WHERE Id = ?", user_id)[0]["Username"]
-    print(usuario)
-
-    return render_template("landing.html", usuario=usuario)
+    if admin == 'on' and len(usuario) != 0:
+        return render_template("landing.html", usuario=usuario, admin='admin')
+    else:
+        return render_template("landing.html", usuario=usuario)
 
 
 @app.route("/login", methods=["GET", "POST"])
