@@ -139,7 +139,7 @@ def logout():
     # Redirect user to login form
     return redirect("/")
 
-@app.route("/admin")
+@app.route("/admin", methods=["GET", "POST"])
 @login_required
 def admin():
     if(request.method == "POST"):
