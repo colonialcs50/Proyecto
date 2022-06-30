@@ -3,46 +3,54 @@
 {% block css %} "/static/css/admin.css"{% endblock %}
 {% block body %}
 <form class="form" action="/admin" method="post">
-    <h2 class="form_title">Admin</h2>
-    
+    <h2 class="form_title">Menu</h2>
+
     <div class="form_container">
         <div class="form_group">
-            <input type="text" id="nombre" name="nombre" class="form_input" placeholder=" nombre ">
+            <input type="text" id="nombre" name="nombre" class="form_input"
+                placeholder="nombre">
             <label for="nombre" class="form_label">Nombre del plato:</label>
             <span class="form_line"></span>
         </div>
         <div class="form_group">
-            <input type="text" id="descripcion" name="descripcion" class="form_input" placeholder=" descripcion " required>
+            <input type="text" id="descripcion" name="descripcion"
+                class="form_input" placeholder="descripcion" required>
             <label for="descripcion" class="form_label">Descripción:</label>
             <span class="form_line"></span>
         </div>
         <div class="form_group">
-            <input type="number" id="precio" name="precio" class="form_input" placeholder=" precio " required>
+            <input type="number" id="precio" name="precio" class="form_input"
+                placeholder="precio" required>
             <label for="precio" class="form_label">Precio:</label>
             <span class="form_line"></span>
         </div>
         <div class="form_group">
-            <input type="number" id="descuento" name="descuento" class="form_input" placeholder=" descuento ">
+            <input type="number" id="descuento" name="descuento"
+                class="form_input" placeholder="descuento">
             <label for="descuento" class="form_label">Precio descuento:</label>
             <span class="form_line"></span>
         </div>
+
         <div class="form_group">
-            <input type="checkbox" id="p_descuento" name="p_descuento" class="form_input" placeholder=" p_descuento ">
-            <label for="p_descuento" class="form_label">Descuento:</label>
-            <span class="form_line"></span>
+            <label for="descuento" class="form_label">Activar descuento:</label>
+            <input type="checkbox" id="p_descuento" name="p_descuento"
+                class="checkbox-JASoft">
         </div>
         <input type="submit" class="form_submit" value="Aplicar">
-        <p class="warning" id="warning"></p>
+        <input type="submit" class="form_submit" value="Modificar">
+        <input type="submit" class="form_submit" value="Eliminar">
+        <p clas="warning" id="warning"></p>
     </div>
-  </form>
 
-  <table class="normal" summary="Tabla genérica"  width="100px" height="100px">
+</form>
+
+<table class="normal" summary="Tabla genérica" width="100px" height="100px">
     <tr>
-      <th scope="col">Nombre</th>
-      <th scope="col">Descripcion</th>
-      <th scope="col">Precio</th>
-      <th scope="col">Precio Descuento</th>
-      <th scope="col">Descuento</th>
+        <th scope="col" class="normal th">Nombre</th>
+        <th scope="col" class="normal th">Descripcion</th>
+        <th scope="col" class="normal th">Precio</th>
+        <th scope="col" class="normal th">Precio Descuento</th>
+        <th scope="col" class="normal th">Descuento</th>
     </tr>
     {% for comidas in comidas %}
     <tr>
@@ -53,5 +61,5 @@
         <td> {{ comidas["Descuento"] }}</td>
     </tr>
     {% endfor %}
-  </table>
+</table>
 {% endblock %}

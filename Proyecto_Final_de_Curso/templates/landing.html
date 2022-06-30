@@ -4,11 +4,11 @@
 {% block body %}
 <!--Inicio de la seccion del header-->
 <section class="header">
-    <a href="#" class="logo"><i class="fas fa-utensils"></i>Colonial</a>        
+    <a href="#" class="logo"><i class="fas fa-utensils"></i>Colonial</a>   
+    <a class="estilo_nombre"> {{ usuario }}</a>     
     <nav class="navbar">
         <a href="#home">Home</a>
         <a href="#acerca">Acerca</a>
-        <a> {{ usuario }}</a>
         {% if admin == 'admin' %}
         <a href="/admin"> {{ admin }} </a>
         {% else %}

@@ -9,7 +9,7 @@
 body {
     font-family: 'Dosis', sans-serif;
     opacity: 0.8;
-    background-image: url(../imagesLogin/comida2.jpg);
+    background-image: url(/static/imagenesLogin/comida1.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -20,7 +20,8 @@ body {
 
 .form {
     background-color: #dfdfdf;
-    margin: auto; width: 90%;
+    margin: auto;
+    width: 90%;
     max-width: 400px;
     padding: 4.5em 3em;
     border-radius: 10px;
@@ -94,9 +95,11 @@ body {
     font-family: 'Dosis', sans-serif;
     font-weight: 300;
     font-size: 1rem;
-    padding: .8em 0;
+    padding: .6em 0;
     border: none;
     border-radius: .5em;
+    position: center;
+    top: 40px;
 }
 
 .form_line {
@@ -117,22 +120,36 @@ body {
 }
 
 */ .normal {
-    width: 250px;
+    width: 100px;
     border: 1px solid #000;
     text-align: right;
 }
 
-.normal th,
+
 .normal td {
     background-color: #dfdfdf;
-    margin: auto;width: 90%;max-width: 400px; padding: 4.5em 3em;
+    margin: auto;
+    width: 70%;
+    max-width: 300px;
+    padding: 3.5em 3em;
     border-radius: 10px;
     box-shadow: 0 5px 10px -5px rgb(0, 0, 0 / 30%);
     text-align: left;
-    margin-left: 20px;
+    margin-left: 10px;
 }
 
-.normal th {}
+.normal th {
+    background-color: #dfdfdf;
+    margin: auto;
+    width: 30%;
+    height:30%;
+    max-width: 200px;
+    padding: 3.5em 3em;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px -5px rgb(0, 0, 0 / 30%);
+    text-align:center;
+    margin-left: 10px;
+}
 
 @media (max-width:425px) {
     .form_title {
@@ -142,4 +159,17 @@ body {
     .normal {
         font-size: 1.8rem;
     }
+}
+
+.checkbox-JASoft {
+    display: inline-block;
+    position: relative;
+    top: 30px;
+    left: 100px;
+    width: 70px;
+    height: 30px;
+    background: #555;
+    border-radius: 50px;
+    box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.6), 0px 1px 0px rgba(255, 255, 255, 0.3);
+
 }

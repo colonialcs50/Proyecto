@@ -425,4 +425,11 @@ div .btn-var {
     }
 }
 
+.estilo_nombre{
+   color: rgba(0, 0, 0, 0.973);
+   font-family:'dosis', sans-serif;
+   font-size: 2.5em;
+   font-style: bolder;
+  
+}
 /*Fin de Media query*/
