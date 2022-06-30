@@ -143,21 +143,54 @@ def logout():
 @login_required
 def admin():
     if(request.method == "POST"):
-        nombre = request.form.get('nombre')
-        descripcion = request.form.get('descripcion')
-        precio = request.form.get('precio')
-        descuento = request.form.get('descuento')
-        p_descuento = request.form.get('p_descuento')
+        boton = request.form.get('boton')
+        comidas = db.execute(
+            "SELECT nombre, descripcion, precio, precio_decuento, Descuento FROM comida")
+        b1 = 'Aplicar'
+        print(b1)
+        print(aplicar)
+        if boton == 'Aplicar':
+            nombre = request.form.get('nombre')
+            descripcion = request.form.get('descripcion')
+            precio = request.form.get('precio')
+            descuento = request.form.get('descuento')
+            p_descuento = request.form.get('p_descuento')
 
-        validacion = db.execute("Select nombre from comida where nombre = ?" , nombre)
-        if len(validacion) != 0:
-             return apology('El Platillo, Ya esta usado', 400)
-        try:
-            db.execute("INSERT INTO comida(nombre, descripcion, precio, precio_decuento, Descuento) VALUES(?, ?, ?, ?, ?)", nombre, descripcion, precio, descuento, p_descuento)
-            return redirect('/landing')
-        except:
-            return apology('El usuario ya esta usado', 400)
+            validacion = db.execute(
+                "Select nombre from comida where nombre = ?", nombre)
+            if len(validacion) != 0:
+                return apology('El Platillo, Ya esta usado', 400)
+            try:
+                db.execute("INSERT INTO comida(nombre, descripcion, precio, precio_decuento, Descuento) VALUES(?, ?, ?, ?, ?)",
+                           nombre, descripcion, precio, descuento, p_descuento)
+                return redirect('/landing')
+            except:
+                return apology('El usuario ya esta usado', 400)
+        elif boton == 'Modificar':
+                nombre = request.form.get('nombre')
+                descripcion = request.form.get('descripcion')
+                precio = request.form.get('precio')
+                descuento = request.form.get('descuento')
+                p_descuento = request.form.get('p_descuento')
+
+                validacion = db.execute(
+                "Select nombre from comida where nombre = ?", nombre)
+                if len(validacion) != 1:
+                    return apology('El Platillo, no existe', 400)
+                id = db.execute("select id from comida where nombre = ?", nombre)
+                try:
+                    db.execute("UPDATE comida SET nombre = ?, descripcion = ?, precio = ?, precio_decuento = ?, Descuento = ? WHERE id = ?",
+                            nombre, descripcion, precio, descuento, p_descuento, id)
+                    return redirect('/landing')
+                except:
+                    return apology('El usuario ya esta usado', 400)
+                
+        else:
+            comidas = db.execute(
+                "SELECT nombre, descripcion, precio, precio_decuento, Descuento FROM comida")
+            return render_template("admin.html", comidas=comidas)
 
     else:
-        comidas = db.execute("SELECT nombre, descripcion, precio, precio_decuento, Descuento FROM comida")
+        comidas = db.execute(
+            "SELECT nombre, descripcion, precio, precio_decuento, Descuento FROM comida")
         return render_template("admin.html", comidas=comidas)
