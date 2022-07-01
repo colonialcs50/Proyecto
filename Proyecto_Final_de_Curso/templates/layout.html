@@ -5,10 +5,32 @@
       <meta http-equiv="X-UA-Compatible" content="IE-edge">
       <meta name="viewport" content="width-device-width, Initial-scale=1.0">
       <title>{% block title %} {% endblock %}</title>
-      <link rel="stylesheet" href={% block css %} {% endblock %}>
+      <link rel="stylesheet" href="/static/css/admin.css">
    </head>
    <body>
+
+      <section class="header">
+         <a href="#" class="logo"><i class="fas fa-utensils"></i>Colonial</a>   
+         <a class="estilo_nombre"> {{ usuario }}</a>     
+         <nav class="navbar">
+             <a href="/landing.html">Home</a>
+             <a href="#modificar">Modificar</a-->
+             {% if admin == 'admin' %}
+             <a href="/admin"> {{ admin }} </a>
+             {% else %}
+             {% endif %}
+             <a href="#menu">Menu</a>
+             {% if session["user_id"] %}
+             <a href="/logout" class="btn">Log Out</a>
+             {% else %}
+             <a href="/login" class="btn">Login</a>
+             {% endif %}
+         </nav>
+         <div id="menu-btn" class="fas fa-bars"></div>
+     </section>
+
       {% block body %}
       {% endblock %}
+   
    </body>
 </html>

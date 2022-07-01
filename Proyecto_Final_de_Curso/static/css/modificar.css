@@ -24,19 +24,35 @@
     text-transform: capitalize;
 }
 
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+}
+
+html::-webkit-scrollbar {
+    width: 1rem;
+}
+
+html::-webkit-scrollbar-track {
+    background-color: var(--white);
+}
+
+
 section {
     padding: 5rem 10%;
 }
 
 .btn {
-    margin-top: 5px;
+    margin-top: 1rem;
     display: inline-block;
     background: var(--peru);
     background: #ec6d6d;
     color: var(--white);
-    font-size: 5 px;
+    font-size: 2rem;
     cursor: pointer;
-    padding: 5px 5px;
+    padding: 1rem 3rem;
     border-radius: 20px;
 }
 
@@ -57,19 +73,20 @@ div .btn-var {
 }
 
 .header {
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    /*box-shadow: var(--box-shadow);*/
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: var(--white);
-    z-index: 1000;
-}
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: var(--box-shadow);
+        position: sticky;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        z-index: 1000;
+      }
+
 
 .header .logo {
     font-size: 2.5rem;
@@ -99,10 +116,9 @@ div .btn-var {
     color: var(--black);
     display: none;
 }
-
 body {
     font-family: 'Dosis', sans-serif;
-    /*opacity: 0.8;*/
+    opacity: 0.8;
     background-image: url(/static/imagenesLogin/comida1.jpg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -114,9 +130,9 @@ body {
 
 .form {
     background-color: #dfdfdf;
-    /*margin: auto;*/
+    margin: auto;
     width: 90%;
-    /*max-width: 400px;*/
+    max-width: 400px;
     padding: 4.5em 3em;
     border-radius: 10px;
     box-shadow: 0 5px 10px -5px rgb(0, 0, 0 / 30%);
@@ -243,7 +259,6 @@ body {
     box-shadow: 0 5px 10px -5px rgb(0, 0, 0 / 30%);
     text-align: center;
     margin-left: 10px;
-    margin-top: auto;
 }
 
 @media (max-width:425px) {
